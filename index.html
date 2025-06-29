@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -224,14 +225,14 @@
       const address = document.getElementById('order-address').value;
       const product = document.getElementById('order-product').value;
 
-      if (name && phone && address) {
-        const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSd9uOOrlDT8VKkPPrEBEouXz7RLB9ct7hQHvmnx1ckcl1HJ3Q/formResponse';
+      if (name && phone && address && product) {
+        const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdX9Vt8HR3GkThijocyvWTiJyGBMBwXldmSHvy3Q4OOgshJUQ/formResponse';
 
         const formData = new FormData();
-        formData.append('entry.2016492615', name);     // الاسم الكامل
-        formData.append('entry.1790819332', phone);    // رقم الهاتف
-        formData.append('entry.1740955191', address);  // العنوان الكامل
-        formData.append('entry.509231690', product);   // المنتج
+        formData.append('entry.1482656329', name);     // الاسم الكامل
+        formData.append('entry.1238810039', phone);    // رقم الهاتف
+        formData.append('entry.2002359276', address);  // العنوان
+        formData.append('entry.1131317693', product);  // المنتج
 
         fetch(formURL, {
           method: 'POST',
@@ -239,13 +240,14 @@
           body: formData
         });
 
-        alert(`✅ تم إرسال طلبك بنجاح\n\nالمنتج: ${product}\nالاسم: ${name}\nالهاتف: ${phone}`);
+        alert(`✅ تم إرسال طلبك بنجاح!\n\n📦 المنتج: ${product}\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}`);
         closeOrderModal();
+
         document.getElementById('order-name').value = '';
         document.getElementById('order-phone').value = '';
         document.getElementById('order-address').value = '';
       } else {
-        alert("يرجى ملء جميع الحقول قبل الإرسال.");
+        alert("❗ يرجى ملء جميع الحقول قبل الإرسال.");
       }
     }
   </script>
